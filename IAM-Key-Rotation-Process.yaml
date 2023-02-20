@@ -1,9 +1,9 @@
-Description: CloudFormation template for deploying IAM Key Rotation Process - Borrowed Cloud
+Description: CloudFormation template for deploying IAM Key Rotation Process - SamsungAds
 Parameters:
   codeRepositoryBucket:
     Type: String
     Description: Code repository bucket name
-    Default: code-stash
+    Default: iam-key-rotation-tst
   iamPolicyName:
     Description: IAM Policy Name
     Type: String
@@ -31,7 +31,7 @@ Parameters:
   snsTopicName:
     Description: SNS Topic Name
     Type: String
-    Default: jjtechGD
+    Default: SamsungAds
   snsSubscription:
     Description: SNS Subscription
     Type: String
@@ -56,7 +56,7 @@ Resources:
         - Key: 'Project'
           Value: 'IAM Key Rotation'
         - Key: 'Concept'
-          Value: 'BorrowedCloud'
+          Value: 'SamsungAdsCloud'
   SNSSubscription:
     Type: AWS::SNS::Subscription
     Properties:
@@ -113,14 +113,14 @@ Resources:
               - 'iam:CreateAccessKey'
               - 'iam:ListAccessKeys'
             Resource:
-              - !Sub 'arn:aws:iam::${AWS::AccountId}:user/bcloud*'
+              - !Sub 'arn:aws:iam::${AWS::AccountId}:user/*'
           - Effect: Allow
             Action:
               - 'secretsmanager:GetSecretValue'
               - 'secretsmanager:ListSecrets'
               - 'secretsmanager:UpdateSecret'
             Resource:
-              - !Sub 'arn:aws:secretsmanager:${AWS::Region}:${AWS::AccountId}:secret:secret-bcloud*'
+              - !Sub 'arn:aws:secretsmanager:${AWS::Region}:${AWS::AccountId}:secret:*'
           - Effect: Allow
             Action: 'SNS:Publish'
             Resource:
@@ -148,7 +148,7 @@ Resources:
         - Key: 'Project'
           Value: 'IAM Key Rotation'
         - Key: 'Concept'
-          Value: 'BorrowedCloud'
+          Value: 'SamsungAdsCloud'
   KeyManagementFunction:
     Type: AWS::Lambda::Function
     Properties:
@@ -168,10 +168,10 @@ Resources:
         - Key: 'Project'
           Value: 'IAM Key Rotation'
         - Key: 'Concept'
-          Value: 'BorrowedCloud'
+          Value: 'SamsungAdscloud'
       Environment:
         Variables:
-          secrets: secret-bcloud-admin
+          secrets: secret-SamsungAds-admin
   KeyManagementRule:
     Type: AWS::Events::Rule
     Properties:
@@ -225,10 +225,10 @@ Resources:
         - Key: 'Project'
           Value: 'IAM Key Rotation'
         - Key: 'Concept'
-          Value: 'BorrowedCloud'
+          Value: 'SamsungAdsCloud'
       Environment:
         Variables:
-          secrets: secret-bcloud-admin
+          secrets: secret-SamsungAds-admin
   KeyDeletionRule:
     Type: AWS::Events::Rule
     Properties:
