@@ -31,7 +31,7 @@ Parameters:
   snsTopicName:
     Description: SNS Topic Name
     Type: String
-    Default: iam-key-management-notification
+    Default: jjtechGD
   snsSubscription:
     Description: SNS Subscription
     Type: String
