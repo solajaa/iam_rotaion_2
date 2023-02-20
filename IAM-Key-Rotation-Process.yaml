@@ -35,7 +35,7 @@ Parameters:
   snsSubscription:
     Description: SNS Subscription
     Type: String
-    Default: myborrowedcloud@gmail.com
+    Default: adedeji.solaja@yahoo.com
   keyManagementSchedule:
     Description: Cron expression for Key Management Lambda function execution
     Type: String
