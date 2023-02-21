@@ -161,7 +161,7 @@ Resources:
       Timeout: 60
       Code:
         S3Bucket: !Ref 'codeRepositoryBucket'
-        S3Key: 'IAM-Key-Rotation-Automation/Lambda-Code/f-iam-key-manage.zip'
+        S3Key: 'iam-key-rotation-tst/Lambda-Code/f-iam-key-manage.zip'
       Tags:
         - Key: 'Environment'
           Value: 'Development'
@@ -218,7 +218,7 @@ Resources:
       Timeout: 60
       Code:
         S3Bucket: !Ref 'codeRepositoryBucket'
-        S3Key: 'IAM-Key-Rotation-Automation/Lambda-Code/f-iam-key-delete.zip'
+        S3Key: 'iam-key-rotation-tst/Lambda-Code/f-iam-key-delete.zip'
       Tags:
         - Key: 'Environment'
           Value: 'Development'
